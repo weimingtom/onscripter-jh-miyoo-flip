@@ -1,0 +1,198 @@
+# -*- Makefile -*-
+#
+# Makefile.onscripter - General makefile rules for ONScripter
+#
+
+GUI_OBJS = ONScripter$(OBJSUFFIX) \
+	ONScripter_animation$(OBJSUFFIX) \
+	ONScripter_command$(OBJSUFFIX) \
+	ONScripter_effect$(OBJSUFFIX) \
+	ONScripter_effect_breakup$(OBJSUFFIX) \
+	ONScripter_event$(OBJSUFFIX) \
+	ONScripter_file$(OBJSUFFIX) \
+	ONScripter_file2$(OBJSUFFIX) \
+	ONScripter_image$(OBJSUFFIX) \
+	ONScripter_lut$(OBJSUFFIX) \
+	ONScripter_rmenu$(OBJSUFFIX) \
+	ONScripter_sound$(OBJSUFFIX) \
+	ONScripter_text$(OBJSUFFIX) \
+	AnimationInfo$(OBJSUFFIX) \
+	FontInfo$(OBJSUFFIX) \
+	DirtyRect$(OBJSUFFIX) \
+	resize_image$(OBJSUFFIX) \
+	ONScripter_directdraw$(OBJSUFFIX) \
+	SDL2_image-2.0.5_mod/IMG_jpg$(OBJSUFFIX) \
+	SDL2_image-2.0.5_mod/IMG_png$(OBJSUFFIX) \
+	SDL2_image-2.0.5_mod/IMG$(OBJSUFFIX) \
+	SDL2_image-2.0.5_mod/IMG_bmp$(OBJSUFFIX) \
+	bzip2-1.0.4_mod/blocksort$(OBJSUFFIX) \
+	bzip2-1.0.4_mod/bzlib$(OBJSUFFIX) \
+	bzip2-1.0.4_mod/compress$(OBJSUFFIX) \
+	bzip2-1.0.4_mod/crctable$(OBJSUFFIX) \
+	bzip2-1.0.4_mod/decompress$(OBJSUFFIX) \
+	bzip2-1.0.4_mod/huffman$(OBJSUFFIX) \
+	bzip2-1.0.4_mod/randtable$(OBJSUFFIX) \
+	jpeg-6b_mod/jcapimin$(OBJSUFFIX) \
+	jpeg-6b_mod/jcapistd$(OBJSUFFIX) \
+	jpeg-6b_mod/jccoefct$(OBJSUFFIX) \
+	jpeg-6b_mod/jccolor$(OBJSUFFIX) \
+	jpeg-6b_mod/jcdctmgr$(OBJSUFFIX) \
+	jpeg-6b_mod/jchuff$(OBJSUFFIX) \
+	jpeg-6b_mod/jcinit$(OBJSUFFIX) \
+	jpeg-6b_mod/jcmainct$(OBJSUFFIX) \
+	jpeg-6b_mod/jcmarker$(OBJSUFFIX) \
+	jpeg-6b_mod/jcmaster$(OBJSUFFIX) \
+	jpeg-6b_mod/jcomapi$(OBJSUFFIX) \
+	jpeg-6b_mod/jcparam$(OBJSUFFIX) \
+	jpeg-6b_mod/jcphuff$(OBJSUFFIX) \
+	jpeg-6b_mod/jcprepct$(OBJSUFFIX) \
+	jpeg-6b_mod/jcsample$(OBJSUFFIX) \
+	jpeg-6b_mod/jctrans$(OBJSUFFIX) \
+	jpeg-6b_mod/jdapimin$(OBJSUFFIX) \
+	jpeg-6b_mod/jdapistd$(OBJSUFFIX) \
+	jpeg-6b_mod/jdatadst$(OBJSUFFIX) \
+	jpeg-6b_mod/jdatasrc$(OBJSUFFIX) \
+	jpeg-6b_mod/jdcoefct$(OBJSUFFIX) \
+	jpeg-6b_mod/jdcolor$(OBJSUFFIX) \
+	jpeg-6b_mod/jddctmgr$(OBJSUFFIX) \
+	jpeg-6b_mod/jdhuff$(OBJSUFFIX) \
+	jpeg-6b_mod/jdinput$(OBJSUFFIX) \
+	jpeg-6b_mod/jdmainct$(OBJSUFFIX) \
+	jpeg-6b_mod/jdmarker$(OBJSUFFIX) \
+	jpeg-6b_mod/jdmaster$(OBJSUFFIX) \
+	jpeg-6b_mod/jdmerge$(OBJSUFFIX) \
+	jpeg-6b_mod/jdphuff$(OBJSUFFIX) \
+	jpeg-6b_mod/jdpostct$(OBJSUFFIX) \
+	jpeg-6b_mod/jdsample$(OBJSUFFIX) \
+	jpeg-6b_mod/jdtrans$(OBJSUFFIX) \
+	jpeg-6b_mod/jerror$(OBJSUFFIX) \
+	jpeg-6b_mod/jfdctflt$(OBJSUFFIX) \
+	jpeg-6b_mod/jfdctfst$(OBJSUFFIX) \
+	jpeg-6b_mod/jfdctint$(OBJSUFFIX) \
+	jpeg-6b_mod/jidctflt$(OBJSUFFIX) \
+	jpeg-6b_mod/jidctred$(OBJSUFFIX) \
+	jpeg-6b_mod/jquant1$(OBJSUFFIX) \
+	jpeg-6b_mod/jquant2$(OBJSUFFIX) \
+	jpeg-6b_mod/jutils$(OBJSUFFIX) \
+	jpeg-6b_mod/jmemmgr$(OBJSUFFIX) \
+	jpeg-6b_mod/jmemnobs$(OBJSUFFIX) \
+	jpeg-6b_mod/jidctint$(OBJSUFFIX) \
+	jpeg-6b_mod/jidctfst$(OBJSUFFIX) \
+	builtin_dll/layer_snow$(OBJSUFFIX) \
+	builtin_dll/ONScripter_effect_cascade$(OBJSUFFIX) \
+	builtin_dll/ONScripter_effect_trig$(OBJSUFFIX) \
+	builtin_dll/layer_oldmovie$(OBJSUFFIX)
+
+DECODER_OBJS = DirectReader$(OBJSUFFIX) \
+	SarReader$(OBJSUFFIX) \
+	NsaReader$(OBJSUFFIX) \
+	sjis2utf16$(OBJSUFFIX) \
+	coding2utf16$(OBJSUFFIX) \
+	gbk2utf16$(OBJSUFFIX)
+	
+
+SARDEC_OBJS  = sardec$(OBJSUFFIX) \
+	DirectReader$(OBJSUFFIX) \
+	SarReader$(OBJSUFFIX) \
+	sjis2utf16$(OBJSUFFIX)
+
+SARCONV_OBJS = sarconv$(OBJSUFFIX) \
+	conv_shared$(OBJSUFFIX) \
+	resize_image$(OBJSUFFIX) \
+	DirectReader$(OBJSUFFIX) \
+	SarReader$(OBJSUFFIX) \
+	sjis2utf16$(OBJSUFFIX)
+
+NSADEC_OBJS  = nsadec$(OBJSUFFIX) \
+	$(DECODER_OBJS)
+
+NSACONV_OBJS = nsaconv$(OBJSUFFIX) \
+	conv_shared$(OBJSUFFIX) \
+	resize_image$(OBJSUFFIX) \
+	$(DECODER_OBJS)
+
+ONSCRIPTER_OBJS = onscripter_main$(OBJSUFFIX) \
+	$(DECODER_OBJS) \
+	ScriptHandler$(OBJSUFFIX) \
+	ScriptParser$(OBJSUFFIX) \
+	ScriptParser_command$(OBJSUFFIX) \
+	$(GUI_OBJS) $(EXT_OBJS)
+
+PARSER_HEADER = BaseReader.h \
+	ButtonLink.h \
+	DirectReader.h \
+	SarReader.h \
+	NsaReader.h \
+	ScriptHandler.h \
+	ScriptParser.h \
+	AnimationInfo.h \
+	FontInfo.h \
+	DirtyRect.h \
+	LUAHandler.h
+
+ONSCRIPTER_HEADER = ONScripter.h $(PARSER_HEADER)
+
+ALL: $(TARGET)
+
+sardec$(EXESUFFIX): $(SARDEC_OBJS)
+	$(LD) $(LDOUT)$@ $(SARDEC_OBJS) $(LIBS)
+
+sarconv$(EXESUFFIX): $(SARCONV_OBJS)
+	$(LD) $(LDOUT)$@ $(SARCONV_OBJS) $(LIBS)
+
+nsadec$(EXESUFFIX): $(NSADEC_OBJS)
+	$(LD) $(LDOUT)$@ $(NSADEC_OBJS) $(LIBS)
+
+nsaconv$(EXESUFFIX): $(NSACONV_OBJS)
+	$(LD) $(LDOUT)$@ $(NSACONV_OBJS) $(LIBS)
+
+simple_aviplay$(EXESUFFIX): simple_aviplay$(OBJSUFFIX) AVIWrapper$(OBJSUFFIX)
+	$(LD) $(LDOUT)$@ simple_aviplay$(OBJSUFFIX) AVIWrapper$(OBJSUFFIX) $(LIBS)
+
+onscripter$(EXESUFFIX): $(ONSCRIPTER_OBJS)
+	$(LD) $< $(ONSCRIPTER_OBJS) $(LIBS) $(EXT_FLAGS) -o onscripter$(EXESUFFIX)
+
+clean:
+	-$(RM) $(TARGET)
+	-$(RM) *$(OBJSUFFIX)
+	-$(RM) builtin_dll/*$(OBJSUFFIX) bzip2-1.0.4_mod/*$(OBJSUFFIX) jpeg-6b_mod/*$(OBJSUFFIX) SDL2_image-2.0.5_mod/*$(OBJSUFFIX)
+
+.cpp$(OBJSUFFIX):
+	$(CC) $(CFLAGS) -o $@ $<
+
+%.o:%.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+SarReader$(OBJSUFFIX):    BaseReader.h SarReader.h 
+NsaReader$(OBJSUFFIX):    BaseReader.h SarReader.h NsaReader.h 
+DirectReader$(OBJSUFFIX): BaseReader.h DirectReader.h
+ScriptHandler$(OBJSUFFIX): ScriptHandler.h
+ScriptParser$(OBJSUFFIX): $(PARSER_HEADER)
+ScriptParser_command$(OBJSUFFIX): $(PARSER_HEADER)
+
+sardec$(OBJSUFFIX): BaseReader.h SarReader.h 
+sarconv$(OBJSUFFIX): BaseReader.h SarReader.h 
+nsadec$(OBJSUFFIX): BaseReader.h SarReader.h NsaReader.h 
+nsaconv$(OBJSUFFIX): BaseReader.h SarReader.h NsaReader.h 
+simple_aviplay$(OBJSUFFIX): AVIWrapper.h
+conv_shared$(OBJSUFFIX): resize_image.h
+
+onscripter_main$(OBJSUFFIX): $(ONSCRIPTER_HEADER) version.h
+ONScripter$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_command$(OBJSUFFIX): $(ONSCRIPTER_HEADER) version.h
+ONScripter_text$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_effect$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_effect_breakup$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_event$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_rmenu$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_animation$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_sound$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_file$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_file2$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+ONScripter_image$(OBJSUFFIX): $(ONSCRIPTER_HEADER) resize_image.h
+ONScripter_lut$(OBJSUFFIX): $(ONSCRIPTER_HEADER)
+AnimationInfo$(OBJSUFFIX): AnimationInfo.h
+FontInfo$(OBJSUFFIX): FontInfo.h
+DirtyRect$(OBJSUFFIX) : DirtyRect.h
+AVIWrapper$(OBJSUFFIX): AVIWrapper.h
+LUAHandler$(OBJSUFFIX): $(ONSCRIPTER_HEADER) LUAHandler.h
