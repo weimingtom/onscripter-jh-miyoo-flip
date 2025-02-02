@@ -30,6 +30,7 @@ https://github.com/AdrienLombard/sm64-351elec-port/releases/tag/v1.0.0
 
 ## TODO and bugs   
 * Check key map  
+* (TODO) Start key can't enter auto mode.  
 
 ## miyoo flip adb usage  
 * killall -KILL MainUI runmiyoo.sh
